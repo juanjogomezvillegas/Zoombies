@@ -16,6 +16,7 @@ package Zoombies;
 import acm.program.*;
 import acm.graphics.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -51,13 +52,38 @@ public class Zoombies extends GraphicsProgram {
     public void run() {
         GImage zoombie = getRetornaZoombie();
         add(zoombie);
+
+        ArrayList<GImage> arrayEmojis = getArrayEmojis();
+
+        for (int i = 0; i <= 100; i++) {
+            int emoji = Aleatori.getNumeroAleatori(0, arrayEmojis.size()-1);
+            arrayEmojis.get(emoji).setLocation(Aleatori.getNumeroAleatori(1, 700), Aleatori.getNumeroAleatori(1, 700));
+            add(arrayEmojis.get(emoji));
+            arrayEmojis.get(emoji).pause(200);
+        }
     }
 
     public GImage getRetornaZoombie() {
         GImage zoombie = new GImage(ruta+"zoombie.png");
         zoombie.setSize(50, 50);
-        zoombie.setLocation(Aleatori.getNumeroAleatori(1, 800), Aleatori.getNumeroAleatori(1, 800));
+        zoombie.setLocation(Aleatori.getNumeroAleatori(1, 700), Aleatori.getNumeroAleatori(1, 700));
         return zoombie;
+    }
+
+    public ArrayList<GImage> getArrayEmojis() {
+        ArrayList<GImage> arrayEmojis = new ArrayList<>();
+
+        arrayEmojis.add(new GImage(ruta+"emoji1.png"));
+        arrayEmojis.add(new GImage(ruta+"emoji2.png"));
+        arrayEmojis.add(new GImage(ruta+"emoji3.png"));
+        arrayEmojis.add(new GImage(ruta+"emoji4.png"));
+        arrayEmojis.add(new GImage(ruta+"emoji5.png"));
+        arrayEmojis.add(new GImage(ruta+"emoji6.png"));
+        arrayEmojis.add(new GImage(ruta+"emoji7.png"));
+        arrayEmojis.add(new GImage(ruta+"emoji8.png"));
+        arrayEmojis.add(new GImage(ruta+"emoji9.png"));
+
+        return arrayEmojis;
     }
 }
 

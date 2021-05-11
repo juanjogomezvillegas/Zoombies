@@ -11,6 +11,7 @@ package Zoombies;
  * @see acm.program
  * @see acm.graphics
  * @see java.awt
+ * @see java.util.ArrayList
  * @see java.util.concurrent.ThreadLocalRandom
  * **/
 import acm.program.*;

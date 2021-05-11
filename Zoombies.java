@@ -63,6 +63,10 @@ public class Zoombies extends GraphicsProgram {
         }
     }
 
+    /**
+     * Crea el metode getter "getRetornaZoombie"
+     * @return zoombie (de tipus GImage)
+     * **/
     public GImage getRetornaZoombie() {
         GImage zoombie = new GImage(ruta+"zoombie.png");
         zoombie.setSize(50, 50);
@@ -70,6 +74,10 @@ public class Zoombies extends GraphicsProgram {
         return zoombie;
     }
 
+    /**
+     * Crea el metode getter "getArrayEmojis"
+     * @return arrayEmojis (de tipus ArrayList<GImage>)
+     * **/
     public ArrayList<GImage> getArrayEmojis() {
         ArrayList<GImage> arrayEmojis = new ArrayList<>();
 
@@ -98,7 +106,5 @@ class Aleatori {
      * @param max
      * @return ThreadLocalRandom.current().nextInt(min, max)
      * **/
-    public static int getNumeroAleatori(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max);
-    }
+    public static int getNumeroAleatori(int min, int max) {return ThreadLocalRandom.current().nextInt(min, max);}
 }

@@ -7,21 +7,43 @@ package Zoombies;
  * @author Kirill Lupenkov
  * **/
 
+/**
+ * We import the following classes:
+ * @see acm.graphics
+ * @see acm.program
+ * @see java.awt
+ * @see java.util.ArrayList
+ * **/
 import acm.graphics.*;
 import acm.program.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Create class "Partida", inherited from the class "GraphicsProgram"
+ * @see GraphicsProgram
+ * @version 1
+ * **/
 public class Partida extends GraphicsProgram {
-    private final ArrayList<Emoji> array_emojis = new ArrayList<>();
-    private final ArrayList<GImage> array_images_emojis = new ArrayList<>();
-    private Zoombie ZOOMBIE;
-    private GImage IMAGE_ZOOMBIE;
+    /**Create Variables private, final and static**/
     private static final String RUTA = "src/Zoombies/";
     private static final int PAUSE_TIME = 1;
+    /**Create Variables private and final**/
+    private final ArrayList<Emoji> array_emojis = new ArrayList<>();
+    private final ArrayList<GImage> array_images_emojis = new ArrayList<>();
+    /**Create Variables private**/
+    private Zoombie ZOOMBIE;
+    private GImage IMAGE_ZOOMBIE;
 
+    /**
+     * Create method setter and static main
+     * @param args array the Strings
+     * **/
     public static void main(String[] args) {new Partida().start(args);}
 
+    /**
+     * Create method setter init
+     * **/
     public void init() {
         setSize(900, 900);
         setBackground(Color.LIGHT_GRAY);
@@ -51,6 +73,9 @@ public class Partida extends GraphicsProgram {
         }
     }
 
+    /**
+     * Create method setter run
+     * **/
     public void run() {
         waitForClick();
         while (true) {

@@ -7,12 +7,24 @@ package Zoombies;
  * @author Kirill Lupenkov
  * **/
 
+/**
+ * We import the following classes:
+ * @see acm.graphics
+ * @see acm.program
+ * **/
 import acm.graphics.*;
 import acm.program.*;
 
+/**
+ * Create class "Emoji", inherited from the class "GraphicsProgram"
+ * @see GraphicsProgram
+ * @version 1
+ * **/
 public class Emoji extends GraphicsProgram {
-    private GImage IMAGE_EMOJI;
+    /**Create Variables private, final and static**/
     private static final double BALL_RADIUS = 10;
+    /**Create Variables private**/
+    private GImage IMAGE_EMOJI;
     private double dx;
     private double dy;
 

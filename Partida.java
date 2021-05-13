@@ -52,7 +52,7 @@ public class Partida extends GraphicsProgram {
 
         IMAGE_ZOOMBIE = ZOOMBIE.getRetornaImatge();
 
-        add(IMAGE_ZOOMBIE, Aleatori.getNumeroAleatori(1, 700), Aleatori.getNumeroAleatori(1, 700));
+        add(IMAGE_ZOOMBIE, Aleatori.getNumeroAleatori(1, getWidth()), Aleatori.getNumeroAleatori(1, getWidth()));
 
         array_emojis.add(new Emoji(RUTA+"emoji1.png"));
         array_emojis.add(new Emoji(RUTA+"emoji2.png"));
@@ -78,11 +78,13 @@ public class Partida extends GraphicsProgram {
      * **/
     public void run() {
         waitForClick();
+
         while (true) {
             ZOOMBIE.setAvancar(IMAGE_ZOOMBIE, getWidth(), getHeight());
 
             for (int i = 0; i < array_emojis.size() && i < array_images_emojis.size(); i++) {
                 array_emojis.get(i).setAvancar(array_images_emojis.get(i), getWidth(), getHeight());
+
                 array_images_emojis.get(i).pause(PAUSE_TIME);
             }
         }

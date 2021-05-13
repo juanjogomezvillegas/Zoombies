@@ -22,7 +22,7 @@ import acm.program.*;
  * **/
 public class Zoombie extends GraphicsProgram {
     /**Create Variables private, final and static**/
-    private static final double BALL_RADIUS = 10;
+    private static final double BALL_RADIUS = 55;
     /**Create Variables private**/
     private GImage IMAGE_ZOOMBIE;
     private double dx;

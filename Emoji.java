@@ -22,8 +22,9 @@ import acm.program.*;
  * **/
 public class Emoji extends GraphicsProgram {
     /**Create Variables private, final and static**/
-    private static final double BALL_RADIUS = 10;
+    private static final double BALL_RADIUS = 55;
     /**Create Variables private**/
+    private static final String RUTA = "src/Zoombies/";
     private GImage IMAGE_EMOJI;
     private double dx;
     private double dy;
@@ -34,9 +35,7 @@ public class Emoji extends GraphicsProgram {
         dy = 1;
     }
 
-    public GImage getRetornaImatge() {
-        return IMAGE_EMOJI;
-    }
+    public GImage getRetornaImatge() {return IMAGE_EMOJI;}
 
     public void setAvancar(GImage emoji, double width, double height) {
         double bx = emoji.getX();

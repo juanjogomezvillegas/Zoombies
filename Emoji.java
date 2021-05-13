@@ -22,7 +22,7 @@ import acm.program.*;
  * **/
 public class Emoji extends GraphicsProgram {
     /**Create Variables private, final and static**/
-    private static final double BALL_RADIUS = 55;
+    private static final double BALL_RADIUS = 10;
     /**Create Variables private**/
     private static final String RUTA = "src/Zoombies/";
     private GImage IMAGE_EMOJI;
@@ -40,8 +40,8 @@ public class Emoji extends GraphicsProgram {
     public void setAvancar(GImage emoji, double width, double height) {
         double bx = emoji.getX();
         double by = emoji.getY();
-        if (bx < BALL_RADIUS || bx > width - BALL_RADIUS) dx = -dx;
-        if (by < BALL_RADIUS || by > height - BALL_RADIUS) dy = -dy;
+        if (bx < BALL_RADIUS || bx > width - 50) dx = -dx;
+        if (by < BALL_RADIUS || by > height - 50) dy = -dy;
         emoji.move(dx, dy);
     }
 }

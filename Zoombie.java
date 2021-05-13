@@ -22,7 +22,7 @@ import acm.program.*;
  * **/
 public class Zoombie extends GraphicsProgram {
     /**Create Variables private, final and static**/
-    private static final double BALL_RADIUS = 55;
+    private static final double BALL_RADIUS = 10;
     /**Create Variables private**/
     private GImage IMAGE_ZOOMBIE;
     private double dx;
@@ -41,8 +41,8 @@ public class Zoombie extends GraphicsProgram {
     public void setAvancar(GImage zoombie, double width, double height) {
         double bx = zoombie.getX();
         double by = zoombie.getY();
-        if (bx < BALL_RADIUS || bx > width - BALL_RADIUS) dx = -dx;
-        if (by < BALL_RADIUS || by > height - BALL_RADIUS) dy = -dy;
+        if (bx < BALL_RADIUS || bx > width - 50) dx = -dx;
+        if (by < BALL_RADIUS || by > height - 50) dy = -dy;
         zoombie.move(dx, dy);
     }
 }

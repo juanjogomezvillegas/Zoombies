@@ -26,7 +26,7 @@ import java.util.ArrayList;
  * **/
 public class Partida extends GraphicsProgram {
     /**Create Variables private, final and static**/
-    private static final String RUTA = "src/Zoombies/";
+    private static final String RUTA = "../Zoombies/";
     private static final int PAUSE_TIME = 1;
     /**Create Variables private and final**/
     private final ArrayList<Emoji> array_emojis = new ArrayList<>();
@@ -52,7 +52,7 @@ public class Partida extends GraphicsProgram {
 
         IMAGE_ZOOMBIE = ZOOMBIE.getRetornaImatge();
 
-        add(IMAGE_ZOOMBIE, Aleatori.getNumeroAleatori(1, getWidth()), Aleatori.getNumeroAleatori(1, getWidth()));
+        add(IMAGE_ZOOMBIE, Aleatori.getNumeroAleatori(50, getWidth()-60), Aleatori.getNumeroAleatori(50, getWidth()-60));
 
         array_emojis.add(new Emoji(RUTA+"emoji1.png"));
         array_emojis.add(new Emoji(RUTA+"emoji2.png"));
@@ -69,7 +69,7 @@ public class Partida extends GraphicsProgram {
         }
 
         for (GImage actual : array_images_emojis) {
-            add(actual, Aleatori.getNumeroAleatori(1, 700), Aleatori.getNumeroAleatori(1, 700));
+            add(actual, Aleatori.getNumeroAleatori(50, 650), Aleatori.getNumeroAleatori(50, 650));
         }
     }
 

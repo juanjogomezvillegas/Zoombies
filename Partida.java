@@ -26,7 +26,7 @@ import java.util.ArrayList;
  * **/
 public class Partida extends GraphicsProgram {
     /**Create Variables private, final and static**/
-    private static final int PAUSE_TIME = 5;
+    private static final int PAUSE_TIME = 1000;
     private static final ArrayList<Emoji> array_emojis = new ArrayList<>();
 
     /**

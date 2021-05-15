@@ -109,6 +109,17 @@ public class Partida extends GraphicsProgram {
                     sortir = false;
                     break;
                 } else {
+                    for (Emoji actual2 : array_emojis) {
+                        actual2.getAfegirImatge().setVisible(false);
+                        pause(350);
+                    }
+
+                    GLabel gameover = new GLabel("Game Over!");
+                    gameover.setFont("Arial-50");
+                    gameover.setColor(Color.WHITE);
+                    gameover.setLocation(getWidth() / 2, getHeight() / 2);
+                    add(gameover);
+
                     sortir = true;
                 }
             }

@@ -25,7 +25,7 @@ import java.awt.*;
 public class Emoji extends GraphicsProgram {
     /**Create Variables private, final and static**/
     private static final double BALL_RADIUS = 10;
-    private static final String RUTA = "src/Zoombies/";
+    private static final String RUTA = "src/Zoombies/Imatges/";
     /**Create Variables private**/
     private GImage IMAGE_EMOJI;
     private boolean zoombie;

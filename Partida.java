@@ -47,6 +47,15 @@ public class Partida extends GraphicsProgram {
         setSize(1500, 1000);
         setBackground(Color.DARK_GRAY);
 
+        /*Show message "Start the Zoombie Pandemy!", with the font "Arial-50", and color "White", and located in the middle*/
+        GLabel start = new GLabel("Start the Zoombie Pandemy!");
+        start.setFont("Arial-50");
+        start.setColor(Color.LIGHT_GRAY);
+        add(start, getWidth() / 2.0 - start.getWidth() / 2.0, getHeight() / 2.0);
+
+        waitForClick();/*wait until the user click on the window*/
+        remove(start);
+
         /*
          * add to ArrayList "array_emojis" the images of the emojis, and write true if is zoombie and false if is not zoombie
          * */
@@ -75,20 +84,26 @@ public class Partida extends GraphicsProgram {
      * Create method setter run
      * **/
     public void run() {
-        waitForClick();/*wait until the user click on the window*/
-
-        int ComptadorZoombies = 1;
+        int ComptadorInfectats = 1;
+        int ComptadorSans = array_emojis.size()-1;
         boolean sortir = false;
+        /*show the population the emoji's*/
+        GLabel comptaSans = new GLabel("Population the Emoji's: " + ComptadorInfectats);
+        comptaSans.setFont("Arial-35");
+        comptaSans.setColor(Color.LIGHT_GRAY);
         /*show the number emoji's infected*/
-        GLabel comptaZoombies = new GLabel("Emoji's Infected: " + ComptadorZoombies);
-        comptaZoombies.setFont("Arial-35");
-        comptaZoombies.setColor(Color.LIGHT_GRAY);
+        GLabel comptaInfectats = new GLabel("Emoji's Infected: " + ComptadorInfectats);
+        comptaInfectats.setFont("Arial-35");
+        comptaInfectats.setColor(Color.LIGHT_GRAY);
 
         /*Repeat the loop, while variable "sortir" be false*/
         while (!sortir) {
+            /*show the population the emoji's*/
+            comptaSans.setLabel("Population the Emoji's: " + ComptadorSans);
+            add(comptaSans, getWidth() / 2.0 - comptaInfectats.getWidth() / 1.5, 50);
             /*show the number emoji's infected*/
-            comptaZoombies.setLabel("Emoji's Infected: " + ComptadorZoombies);
-            add(comptaZoombies, (getWidth() / 2.0) - comptaZoombies.getWidth() / 2.0, 50);
+            comptaInfectats.setLabel("Emoji's Infected: " + ComptadorInfectats);
+            add(comptaInfectats, getWidth() / 2.0 - comptaInfectats.getWidth() / 2.0, 100);
 
             /*All emojis advanced*/
             for (Emoji actual1 : array_emojis) {
@@ -99,7 +114,10 @@ public class Partida extends GraphicsProgram {
             * if there is an emoji is next to an zoombie, the emoji convert in zoombie*/
             for (Emoji actual1 : array_emojis) {
                 for (Emoji actual2 : array_emojis) {
+                    /*If emoji "actual1" is zoombie and emoji "actual2" is not zoombie*/
                     if (actual1.isZoombie() && !actual2.isZoombie()) {
+                        /*Storage position X and Y, of the two images
+                        * and too storage the two images*/
                         GImage img1 = actual1.getImatge();
                         GImage img2 = actual2.getImatge();
                         double x1 = img1.getX();
@@ -107,9 +125,11 @@ public class Partida extends GraphicsProgram {
                         double x2 = img2.getX();
                         double y2 = img2.getY();
 
+                        /*If the two images meet the following conditions*/
                         if (y1 < y2 + 35 && y1 > y2 - 35 && x1 < x2 + 35  && x1 > x2 - 35) {
-                            actual2.setZoombie(true);
-                            ComptadorZoombies++;
+                            actual2.setZoombie(true);/*emoji is convert to zoombie*/
+                            ComptadorSans--;/*less 1 the variable "ComptadorSans"*/
+                            ComptadorInfectats++;/*more 1 the variable "ComptadorInfectats"*/
                         }
                     }
                 }
@@ -122,8 +142,10 @@ public class Partida extends GraphicsProgram {
                     sortir = false;
                     break;
                 } else {
+                    /*show the population the emoji's*/
+                    comptaSans.setLabel("Population the Emoji's: " + 0);
                     /*show all emoji's infected*/
-                    comptaZoombies.setLabel("All Emoji's Infected");
+                    comptaInfectats.setLabel("All Emoji's Infected");
                     sortir = true;
                 }
             }
@@ -135,7 +157,7 @@ public class Partida extends GraphicsProgram {
             pause(350);
         }
 
-        /*And add a message "Game Over", with the font "Arial-50", and color "White", and located in the middle*/
+        /*And show a message "Game Over", with the font "Arial-50", and color "White", and located in the middle*/
         GLabel gameover = new GLabel("Game Over!");
         gameover.setFont("Arial-50");
         gameover.setColor(Color.LIGHT_GRAY);

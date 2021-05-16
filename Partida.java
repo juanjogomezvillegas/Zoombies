@@ -26,7 +26,6 @@ import java.util.ArrayList;
  * **/
 public class Partida extends GraphicsProgram {
     /**Create Variables private, final and static**/
-    private static final int PAUSE_TIME = 1000;
     private static final ArrayList<Emoji> array_emojis = new ArrayList<>();
 
     /**
@@ -126,8 +125,8 @@ public class Partida extends GraphicsProgram {
                 }
             }
 
-            /*establishes the pause time, in the value of the variable "PAUSE_TIME"*/
-            pause(PAUSE_TIME);
+            /*establishes the pause time, in the value of the variable "1000"*/
+            pause(1000);
         }
     }
 
@@ -154,7 +153,7 @@ public class Partida extends GraphicsProgram {
         /*Move the emoji*/
         emoji.getImatge().move(emoji.getSpeedX(), emoji.getSpeedY());
 
-        /*establishes the pause time, in the value of the variable "PAUSE_TIME"*/
-        pause(PAUSE_TIME);
+        /*establishes the pause time, in the value of the variable "5"*/
+        pause(5);
     }
 }

@@ -64,7 +64,7 @@ public class Partida extends GraphicsProgram {
          * add the images of the emojis in the window
          * */
         for (Emoji actual1 : array_emojis) {
-            add(actual1.getAfegirImatge(), Aleatori.getNumeroAleatori(50, 650), Aleatori.getNumeroAleatori(50, 650));
+            add(actual1.getImatge(), Aleatori.getNumeroAleatori(50, 650), Aleatori.getNumeroAleatori(50, 650));
         }
     }
 
@@ -79,7 +79,7 @@ public class Partida extends GraphicsProgram {
         while (!sortir) {
             /*All emojis advanced*/
             for (Emoji actual1 : array_emojis) {
-                actual1.setAvancar(getWidth(), getHeight());
+                setAvancar(actual1);
             }
 
             /*check if an emoji is next to zoombie
@@ -94,7 +94,7 @@ public class Partida extends GraphicsProgram {
                         double x2 = emoji2.getX();
                         double y2 = emoji2.getY();
 
-                        if (y1 < (y2 + 35) && y1 > (y2 - 35) && x1 < (x2 + 35)  && x1 > (x2 - 35)) {
+                        if (y1 < y2 + 35 && y1 > y2 - 35 && x1 < x2 + 35  && x1 > x2 - 35) {
                             actual2.setCanviarImatge("zoombie.png");
                             actual2.setZoombie(true);
                         }
@@ -109,35 +109,52 @@ public class Partida extends GraphicsProgram {
                     sortir = false;
                     break;
                 } else {
+                    /*And the next loop, makes all the emojis disappear*/
                     for (Emoji actual2 : array_emojis) {
-                        actual2.getAfegirImatge().setVisible(false);
+                        actual2.getImatge().setVisible(false);
                         pause(350);
                     }
 
+                    /*And add a message "Game Over", with the font "Arial-50", and color "White", and located in the middle*/
                     GLabel gameover = new GLabel("Game Over!");
                     gameover.setFont("Arial-50");
                     gameover.setColor(Color.WHITE);
-                    gameover.setLocation(getWidth() / 2, getHeight() / 2);
+                    gameover.setLocation((getWidth() / 2.0) - gameover.getWidth() / 2, getHeight() / 2.0);
                     add(gameover);
 
                     sortir = true;
                 }
             }
 
-            /*And the next loop, makes all the emojis disappear*/
-            for (Emoji actual1 : array_emojis) {
-                actual1.getAfegirImatge().setVisible(false);
-                pause(350);
-            }
-
-            /*And add a message "Game Over", with the font "Arial-50", and color "White", and located in the middle*/
-            GLabel gameover = new GLabel("Game Over!");
-            gameover.setFont("Arial-50");
-            gameover.setColor(Color.WHITE);
-            gameover.setLocation(getWidth() / 2, getHeight() / 2);
-            add(gameover);
-
-            pause(PAUSE_TIME);/*establishes the pause time, in the value of the variable "PAUSE_TIME"*/
+            /*establishes the pause time, in the value of the variable "PAUSE_TIME"*/
+            pause(PAUSE_TIME);
         }
+    }
+
+    /**
+     * Create method setter "setAvancar"
+     * @param emoji the emoji that needs to be moved
+     * **/
+    private void setAvancar(Emoji emoji) {
+        /*Storage in the variables "locX" and "locY", the position X and Y to the emoji to param*/
+        double locX = emoji.getImatge().getX();
+        double locY = emoji.getImatge().getY();
+
+        /*Check what "locX" be less that 0 or "locX" be greater that width to the window less 48
+        * if is complies, will do the following*/
+        if (locX < 0 || locX > getWidth() - 48) {
+            emoji.setSpeedX(-emoji.getSpeedX());
+        }
+        /*Check what "locY" be less that 0 or "locY" be greater that height to the window less 48
+        * if is complies, will do the following*/
+        if (locY < 0 || locY > getHeight() - 48) {
+            emoji.setSpeedY(-emoji.getSpeedY());
+        }
+
+        /*Move the emoji*/
+        emoji.getImatge().move(emoji.getSpeedX(), emoji.getSpeedY());
+
+        /*establishes the pause time, in the value of the variable "PAUSE_TIME"*/
+        pause(PAUSE_TIME);
     }
 }

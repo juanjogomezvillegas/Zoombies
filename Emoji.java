@@ -31,6 +31,8 @@ public class Emoji extends GraphicsProgram {
     private boolean zoombie;
     private double dx;
     private double dy;
+    private double speedX;
+    private double speedY;
 
     /**
      * Create method constructor the class "Emoji"
@@ -42,26 +44,48 @@ public class Emoji extends GraphicsProgram {
         this.zoombie = zoombie;
         dx = 2;
         dy = 1;
+
+        switch (Aleatori.getNumeroAleatori(0, 8)) {
+            case 0:
+                this.speedX = 4;
+                this.speedY = 2;
+                break;
+            case 1:
+                this.speedX = 4;
+                this.speedY = -2;
+                break;
+            case 2:
+                this.speedX = -4;
+                this.speedY = 2;
+                break;
+            case 3:
+                this.speedX = -4;
+                this.speedY = -2;
+                break;
+            case 4:
+                this.speedX = 2;
+                this.speedY = 4;
+                break;
+            case 5:
+                this.speedX = 2;
+                this.speedY = -4;
+                break;
+            case 6:
+                this.speedX = -2;
+                this.speedY = 4;
+                break;
+            default:
+                this.speedX = -2;
+                this.speedY = -4;
+                break;
+        }
     }
 
     /**
-     * Create method setter "setAvancar"
-     * @param width the width from the window
-     * @param height the height from the window
-     * **/
-    public void setAvancar(double width, double height) {
-        double bx = IMAGE_EMOJI.getX();
-        double by = IMAGE_EMOJI.getY();
-        if (bx < BALL_RADIUS || bx > width - 50) dx = -dx;
-        if (by < BALL_RADIUS || by > height - 50) dy = -dy;
-        IMAGE_EMOJI.move(dx, dy);
-    }
-
-    /**
-     * Create method getter "getAfegirImatge"
+     * Create method getter "getImatge"
      * @return IMAGE_EMOJI
      * **/
-    public GImage getAfegirImatge() {return IMAGE_EMOJI;}
+    public GImage getImatge() {return IMAGE_EMOJI;}
 
     /**
      * Create method setter "setCanviarImatge"
@@ -86,4 +110,28 @@ public class Emoji extends GraphicsProgram {
      * @return zoombie
      * **/
     public boolean isZoombie() {return zoombie;}
+
+    /**
+     * Create method setter "setSpeedX"
+     * @param speedX speed X the emoji
+     * **/
+    public void setSpeedX(double speedX) {this.speedX = speedX;}
+
+    /**
+     * Create method setter "setSpeedY"
+     * @param speedY speed Y the emoji
+     * **/
+    public void setSpeedY(double speedY) {this.speedY = speedY;}
+
+    /**
+     * Create method getter "getSpeedX"
+     * @return speedX
+     * **/
+    public double getSpeedX() {return speedX;}
+
+    /**
+     * Create method getter "getSpeedY"
+     * @return speedY
+     * **/
+    public double getSpeedY() {return speedY;}
 }

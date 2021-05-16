@@ -9,13 +9,15 @@ package Zoombies;
 
 /**
  * We import the following classes:
- * @see acm.graphics
- * @see acm.program
+ * @see acm.program.GraphicsProgram
+ * @see acm.graphics.GImage
+ * @see acm.graphics.GLabel
  * @see java.awt.Color
  * @see java.util.ArrayList
  * **/
-import acm.graphics.*;
-import acm.program.*;
+import acm.program.GraphicsProgram;
+import acm.graphics.GImage;
+import acm.graphics.GLabel;
 import java.awt.Color;
 import java.util.ArrayList;
 
@@ -64,7 +66,9 @@ public class Partida extends GraphicsProgram {
          * add the images of the emojis in the window
          * */
         for (Emoji actual1 : array_emojis) {
-            add(actual1.getImatge(), Aleatori.getNumeroAleatori(50, 650), Aleatori.getNumeroAleatori(50, 650));
+            double positionX = Aleatori.getNumeroAleatori(70, getWidth() - 71);
+            double positionY = Aleatori.getNumeroAleatori(70, getHeight() - 71);
+            add(actual1.getImatge(), positionX ,positionY);
         }
     }
 
@@ -109,27 +113,25 @@ public class Partida extends GraphicsProgram {
                     sortir = false;
                     break;
                 } else {
-                    /*And the next loop, makes all the emojis disappear*/
-                    for (Emoji actual2 : array_emojis) {
-                        actual2.getImatge().setVisible(false);
-                        pause(350);
-                    }
-
-                    /*And add a message "Game Over", with the font "Arial-50", and color "White", and located in the middle*/
-                    GLabel gameover = new GLabel("Game Over!");
-                    gameover.setFont("Arial-50");
-                    gameover.setColor(Color.WHITE);
-                    gameover.setLocation((getWidth() / 2.0) - gameover.getWidth() / 2, getHeight() / 2.0);
-                    add(gameover);
-
                     sortir = true;
                 }
             }
-
-            /*establishes the pause time, in the value of the variable "1000"*/
-            pause(1000);
-            System.exit(0);
         }
+
+        /*And the next loop, makes all the emojis disappear*/
+        for (Emoji actual2 : array_emojis) {
+            actual2.getImatge().setVisible(false);
+            pause(350);
+        }
+
+        /*And add a message "Game Over", with the font "Arial-50", and color "White", and located in the middle*/
+        GLabel gameover = new GLabel("Game Over!");
+        gameover.setFont("Arial-50");
+        gameover.setColor(Color.LIGHT_GRAY);
+        add(gameover, getWidth() / 2.0 - gameover.getWidth() / 2.0, getHeight() / 2.0);
+
+        /*establishes the pause time, in the value of the variable "1000"*/
+        pause(1000);
     }
 
     /**

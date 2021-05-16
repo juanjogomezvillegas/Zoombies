@@ -48,6 +48,7 @@ public class Partida extends GraphicsProgram {
         setSize(1500, 1000);
         setBackground(Color.DARK_GRAY);
 
+        /*Add the wallpapper of the game*/
         GImage fons = new GImage(RUTA+"fons.jpg");
         fons.setSize(getWidth(), getHeight());
         add(fons);

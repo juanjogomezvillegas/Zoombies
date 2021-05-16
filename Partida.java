@@ -11,12 +11,12 @@ package Zoombies;
  * We import the following classes:
  * @see acm.graphics
  * @see acm.program
- * @see java.awt
+ * @see java.awt.Color
  * @see java.util.ArrayList
  * **/
 import acm.graphics.*;
 import acm.program.*;
-import java.awt.*;
+import java.awt.Color;
 import java.util.ArrayList;
 
 /**
@@ -26,7 +26,8 @@ import java.util.ArrayList;
  * **/
 public class Partida extends GraphicsProgram {
     /**Create Variables private, final and static**/
-    private static final ArrayList<Emoji> array_emojis = new ArrayList<>();
+    private final ArrayList<Emoji> array_emojis = new ArrayList<>();
+    private final String RUTA = "src/Zoombies/Imatges/";
 
     /**
      * Create method setter and static main
@@ -48,6 +49,7 @@ public class Partida extends GraphicsProgram {
         /*
          * add to ArrayList "array_emojis" the images of the emojis, and write true if is zoombie and false if is not zoombie
          * */
+        array_emojis.add(new Emoji("zoombie.png", true));
         array_emojis.add(new Emoji("emoji1.png", false));
         array_emojis.add(new Emoji("emoji2.png", false));
         array_emojis.add(new Emoji("emoji3.png", false));
@@ -57,7 +59,6 @@ public class Partida extends GraphicsProgram {
         array_emojis.add(new Emoji("emoji7.png", false));
         array_emojis.add(new Emoji("emoji8.png", false));
         array_emojis.add(new Emoji("emoji9.png", false));
-        array_emojis.add(new Emoji("zoombie.png", true));
 
         /*
          * add the images of the emojis in the window
@@ -85,16 +86,16 @@ public class Partida extends GraphicsProgram {
             * if there is an emoji is next to an zoombie, the emoji convert in zoombie*/
             for (Emoji actual1 : array_emojis) {
                 for (Emoji actual2 : array_emojis) {
-                    if (actual1.isZoombie() && !(actual2.isZoombie())) {
-                        GImage emoji1 = new GImage(actual1.getRetornaImatge());
-                        GImage emoji2 = new GImage(actual2.getRetornaImatge());
-                        double x1 = emoji1.getX();
-                        double y1 = emoji1.getY();
-                        double x2 = emoji2.getX();
-                        double y2 = emoji2.getY();
+                    if (actual1.isZoombie() && !actual2.isZoombie()) {
+                        GImage img1 = actual1.getImatge();
+                        GImage img2 = actual2.getImatge();
+                        double x1 = img1.getX();
+                        double y1 = img1.getY();
+                        double x2 = img2.getX();
+                        double y2 = img2.getY();
 
                         if (y1 < y2 + 35 && y1 > y2 - 35 && x1 < x2 + 35  && x1 > x2 - 35) {
-                            actual2.setCanviarImatge("zoombie.png");
+                            actual2.getImatge().setImage(RUTA+"zoombie.png");
                             actual2.setZoombie(true);
                         }
                     }
@@ -127,6 +128,7 @@ public class Partida extends GraphicsProgram {
 
             /*establishes the pause time, in the value of the variable "1000"*/
             pause(1000);
+            System.exit(0);
         }
     }
 
@@ -153,7 +155,7 @@ public class Partida extends GraphicsProgram {
         /*Move the emoji*/
         emoji.getImatge().move(emoji.getSpeedX(), emoji.getSpeedY());
 
-        /*establishes the pause time, in the value of the variable "5"*/
-        pause(5);
+        /*establishes the pause time, in the value of the variable "3"*/
+        pause(3);
     }
 }

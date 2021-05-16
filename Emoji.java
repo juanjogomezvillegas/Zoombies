@@ -24,8 +24,7 @@ import java.awt.*;
  * **/
 public class Emoji extends GraphicsProgram {
     /**Create Variables private, final and static**/
-    private static final double BALL_RADIUS = 10;
-    private static final String RUTA = "src/Zoombies/Imatges/";
+    private final String RUTA = "src/Zoombies/Imatges/";
     /**Create Variables private**/
     private GImage IMAGE_EMOJI;
     private boolean zoombie;
@@ -86,18 +85,6 @@ public class Emoji extends GraphicsProgram {
      * @return IMAGE_EMOJI
      * **/
     public GImage getImatge() {return IMAGE_EMOJI;}
-
-    /**
-     * Create method setter "setCanviarImatge"
-     * @param rutaImatge path folder where are the images
-     * **/
-    public void setCanviarImatge(String rutaImatge) {IMAGE_EMOJI.setImage(RUTA+rutaImatge);}
-
-    /**
-     * Create method getter "getRetornaImatge"
-     * @return IMAGE_EMOJI.getImage()
-     * **/
-    public Image getRetornaImatge() {return IMAGE_EMOJI.getImage();}
 
     /**
      * Create method setter "setZoombie"

@@ -142,9 +142,9 @@ public class Partida extends GraphicsProgram {
                     sortir = false;
                     break;
                 } else {
-                    /*show the population the emoji's*/
-                    comptaSans.setLabel("Population the Emoji's: " + 0);
+                    remove(comptaSans);
                     /*show all emoji's infected*/
+                    comptaInfectats.setLocation(getWidth() / 2.0 - comptaInfectats.getWidth() / 1.5, 50);
                     comptaInfectats.setLabel("All Emoji's Infected");
                     sortir = true;
                 }

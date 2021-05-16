@@ -77,9 +77,19 @@ public class Partida extends GraphicsProgram {
     public void run() {
         waitForClick();/*wait until the user click on the window*/
 
+        int ComptadorZoombies = 1;
         boolean sortir = false;
+        /*show the number emoji's infected*/
+        GLabel comptaZoombies = new GLabel("Emoji's Infected: " + ComptadorZoombies);
+        comptaZoombies.setFont("Arial-35");
+        comptaZoombies.setColor(Color.LIGHT_GRAY);
+
         /*Repeat the loop, while variable "sortir" be false*/
         while (!sortir) {
+            /*show the number emoji's infected*/
+            comptaZoombies.setLabel("Emoji's Infected: " + ComptadorZoombies);
+            add(comptaZoombies, (getWidth() / 2.0) - comptaZoombies.getWidth() / 2.0, 50);
+
             /*All emojis advanced*/
             for (Emoji actual1 : array_emojis) {
                 setMoureEmoji(actual1);
@@ -99,6 +109,7 @@ public class Partida extends GraphicsProgram {
 
                         if (y1 < y2 + 35 && y1 > y2 - 35 && x1 < x2 + 35  && x1 > x2 - 35) {
                             actual2.setZoombie(true);
+                            ComptadorZoombies++;
                         }
                     }
                 }
@@ -111,6 +122,8 @@ public class Partida extends GraphicsProgram {
                     sortir = false;
                     break;
                 } else {
+                    /*show all emoji's infected*/
+                    comptaZoombies.setLabel("All Emoji's Infected");
                     sortir = true;
                 }
             }

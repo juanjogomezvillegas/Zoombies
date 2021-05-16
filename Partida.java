@@ -28,6 +28,7 @@ import java.util.ArrayList;
  * **/
 public class Partida extends GraphicsProgram {
     /**Create Variables private, final and static**/
+    private static final String RUTA = "src/Zoombies/Imatges/";
     private static final ArrayList<Emoji> array_emojis = new ArrayList<>();
 
     /**
@@ -46,6 +47,10 @@ public class Partida extends GraphicsProgram {
          * */
         setSize(1500, 1000);
         setBackground(Color.DARK_GRAY);
+
+        GImage fons = new GImage(RUTA+"fons.jpg");
+        fons.setSize(getWidth(), getHeight());
+        add(fons);
 
         /*Show message "Start the Zoombie Pandemy!", with the font "Arial-50", and color "White", and located in the middle*/
         GLabel start = new GLabel("Start the Zoombie Pandemy!");

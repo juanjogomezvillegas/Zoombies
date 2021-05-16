@@ -9,13 +9,11 @@ package Zoombies;
 
 /**
  * We import the following classes:
- * @see acm.graphics
- * @see acm.program
- * @see java.awt
+ * @see acm.program.GraphicsProgram
+ * @see acm.graphics.GImage
  * **/
-import acm.graphics.*;
-import acm.program.*;
-import java.awt.*;
+import acm.program.GraphicsProgram;
+import acm.graphics.GImage;
 
 /**
  * Create class "Emoji", inherited from the class "GraphicsProgram"
@@ -24,12 +22,10 @@ import java.awt.*;
  * **/
 public class Emoji extends GraphicsProgram {
     /**Create Variables private, final and static**/
-    private final String RUTA = "src/Zoombies/Imatges/";
+    private static final String RUTA = "src/Zoombies/Imatges/";
     /**Create Variables private**/
     private GImage IMAGE_EMOJI;
     private boolean zoombie;
-    private double dx;
-    private double dy;
     private double speedX;
     private double speedY;
 
@@ -39,41 +35,42 @@ public class Emoji extends GraphicsProgram {
      * @param zoombie variable boolean, what indicate if emoji is a zoombie or no
      * **/
     public Emoji(String rutaEmoji, boolean zoombie) {
+        /*we create one instance of the image the param "rutaEmoji"*/
         IMAGE_EMOJI = new GImage(RUTA+rutaEmoji);
+        /*assign the variable "zoombie" the value of the param "zoombie"*/
         this.zoombie = zoombie;
-        dx = 2;
-        dy = 1;
 
-        switch (Aleatori.getNumeroAleatori(0, 8)) {
-            case 0:
+        /*Generate number random between 0 and 10, and select between the following cases:*/
+        switch (Aleatori.getNumeroAleatori(0, 10)) {
+            case 0:/*Case 0*/
                 this.speedX = 4;
                 this.speedY = 2;
                 break;
-            case 1:
+            case 1:/*Case 1*/
                 this.speedX = 4;
                 this.speedY = -2;
                 break;
-            case 2:
+            case 2:/*Case 2*/
                 this.speedX = -4;
                 this.speedY = 2;
                 break;
-            case 3:
+            case 3:/*Case 3*/
                 this.speedX = -4;
                 this.speedY = -2;
                 break;
-            case 4:
+            case 4:/*Case 4*/
                 this.speedX = 2;
                 this.speedY = 4;
                 break;
-            case 5:
+            case 5:/*Case 5*/
                 this.speedX = 2;
                 this.speedY = -4;
                 break;
-            case 6:
+            case 6:/*Case 6*/
                 this.speedX = -2;
                 this.speedY = 4;
                 break;
-            default:
+            default:/*Case default*/
                 this.speedX = -2;
                 this.speedY = -4;
                 break;
@@ -90,7 +87,10 @@ public class Emoji extends GraphicsProgram {
      * Create method setter "setZoombie"
      * @param zoombie will be true, if is zoombie, and will be false, if is not zoombie
      * **/
-    public void setZoombie(boolean zoombie) {this.zoombie = zoombie;}
+    public void setZoombie(boolean zoombie) {
+        IMAGE_EMOJI.setImage(RUTA+"zoombie.png");
+        this.zoombie = zoombie;
+    }
 
     /**
      * Create method getter "isZoombie"

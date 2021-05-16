@@ -28,8 +28,7 @@ import java.util.ArrayList;
  * **/
 public class Partida extends GraphicsProgram {
     /**Create Variables private, final and static**/
-    private final ArrayList<Emoji> array_emojis = new ArrayList<>();
-    private final String RUTA = "src/Zoombies/Imatges/";
+    private static final ArrayList<Emoji> array_emojis = new ArrayList<>();
 
     /**
      * Create method setter and static main
@@ -45,7 +44,7 @@ public class Partida extends GraphicsProgram {
          * setSize set the size window in 900 the width and 900 the height
          * setBackground set the color window in DARK_GRAY
          * */
-        setSize(900, 900);
+        setSize(1500, 1000);
         setBackground(Color.DARK_GRAY);
 
         /*
@@ -83,7 +82,7 @@ public class Partida extends GraphicsProgram {
         while (!sortir) {
             /*All emojis advanced*/
             for (Emoji actual1 : array_emojis) {
-                setAvancar(actual1);
+                setMoureEmoji(actual1);
             }
 
             /*check if an emoji is next to zoombie
@@ -99,7 +98,6 @@ public class Partida extends GraphicsProgram {
                         double y2 = img2.getY();
 
                         if (y1 < y2 + 35 && y1 > y2 - 35 && x1 < x2 + 35  && x1 > x2 - 35) {
-                            actual2.getImatge().setImage(RUTA+"zoombie.png");
                             actual2.setZoombie(true);
                         }
                     }
@@ -138,7 +136,7 @@ public class Partida extends GraphicsProgram {
      * Create method setter "setAvancar"
      * @param emoji the emoji that needs to be moved
      * **/
-    private void setAvancar(Emoji emoji) {
+    private void setMoureEmoji(Emoji emoji) {
         /*Storage in the variables "locX" and "locY", the position X and Y to the emoji to param*/
         double locX = emoji.getImatge().getX();
         double locY = emoji.getImatge().getY();

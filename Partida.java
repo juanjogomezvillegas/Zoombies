@@ -28,7 +28,6 @@ import java.util.ArrayList;
  * **/
 public class Partida extends GraphicsProgram {
     /**Create Variables private, final and static**/
-    private static final String RUTA = "src/Zoombies/Imatges/";
     private static final ArrayList<Emoji> array_emojis = new ArrayList<>();
 
     /**
@@ -49,7 +48,7 @@ public class Partida extends GraphicsProgram {
         setBackground(Color.DARK_GRAY);
 
         /*Add the wallpapper of the game*/
-        GImage fons = new GImage(RUTA+"fons.jpg");
+        GImage fons = new GImage("src/Zoombies/Imatges/fons.jpg");
         fons.setSize(getWidth(), getHeight());
         add(fons);
 

@@ -148,6 +148,7 @@ public class Partida extends GraphicsProgram {
                     sortir = false;
                     break;
                 } else {
+                    /*Show a message "All Emoji's Infected"*/
                     remove(comptaSans);
                     comptaInfectats.setLabel("All Emoji's Infected");
                     add(comptaInfectats, getWidth() / 2.0 - comptaInfectats.getWidth() / 1.5, 50);
@@ -156,15 +157,15 @@ public class Partida extends GraphicsProgram {
             }
         }
 
+        /*Change wallpapper of the game*/
+        fons.setImage(RUTA+"fons-final.jpg");
+        fons.setSize(getWidth(), getHeight());
+
         /*And the next loop, makes all the emojis disappear*/
         for (Emoji actual2 : array_emojis) {
             actual2.getImatge().setVisible(false);
             pause(350);
         }
-
-        /*Change wallpapper of the game*/
-        fons.setImage(RUTA+"fons-final.jpg");
-        fons.setSize(getWidth(), getHeight());
 
         /*And show a message "Game Over", with the font "Arial-50", and color "White", and located in the middle*/
         GLabel gameover = new GLabel("Game Over!");

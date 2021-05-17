@@ -149,26 +149,22 @@ public class Partida extends GraphicsProgram {
                     break;
                 } else {
                     remove(comptaSans);
+                    comptaInfectats.setLabel("All Emoji's Infected");
+                    add(comptaInfectats, getWidth() / 2.0 - comptaInfectats.getWidth() / 1.5, 50);
                     sortir = true;
                 }
             }
         }
-
-
-        /*Change wallpapper of the game*/
-        fons.setImage(RUTA+"fons-final.jpg");
-        fons.setSize(getWidth(), getHeight());
-        add(fons);
-
-        /*show all emoji's infected*/
-        comptaInfectats.setLabel("All Emoji's Infected");
-        add(comptaInfectats, getWidth() / 2.0 - comptaInfectats.getWidth() / 1.5, 50);
 
         /*And the next loop, makes all the emojis disappear*/
         for (Emoji actual2 : array_emojis) {
             actual2.getImatge().setVisible(false);
             pause(350);
         }
+
+        /*Change wallpapper of the game*/
+        fons.setImage(RUTA+"fons-final.jpg");
+        fons.setSize(getWidth(), getHeight());
 
         /*And show a message "Game Over", with the font "Arial-50", and color "White", and located in the middle*/
         GLabel gameover = new GLabel("Game Over!");

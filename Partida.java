@@ -53,7 +53,7 @@ public class Partida extends GraphicsProgram {
         fons.setSize(getWidth(), getHeight());
         add(fons);
 
-        /*Show message "Start the Zoombie Pandemy!", with the font "Arial-50", and color "White", and located in the middle*/
+        /*Show message "Start the Zoombie Pandemy!", with the font "CourierNew-70", and color "LIGHT_GRAY", and located in the middle*/
         GLabel start = new GLabel("Start the Zoombie Pandemy!");
         start.setFont("CourierNew-70");
         start.setColor(Color.LIGHT_GRAY);
@@ -167,11 +167,11 @@ public class Partida extends GraphicsProgram {
             pause(350);
         }
 
-        /*And show a message "Game Over", with the font "Arial-50", and color "White", and located in the middle*/
-        GLabel gameover = new GLabel("Game Over!");
-        gameover.setFont("CourierNew-70");
-        gameover.setColor(Color.LIGHT_GRAY);
-        add(gameover, getWidth() / 2.0 - gameover.getWidth() / 2.0, getHeight() / 2.0);
+        /*And show a message "Humanity has become extinct!", with the font "CourierNew-70", and color "LIGHT_GRAY", and located in the middle*/
+        GLabel end = new GLabel("Humanity has become extinct!");
+        end.setFont("CourierNew-70");
+        end.setColor(Color.LIGHT_GRAY);
+        add(end, getWidth() / 2.0 - end.getWidth() / 2.0, getHeight() / 2.0);
 
         /*establishes the pause time, in the value of the variable "1000"*/
         pause(1000);

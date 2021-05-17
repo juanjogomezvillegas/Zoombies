@@ -55,7 +55,7 @@ public class Partida extends GraphicsProgram {
 
         /*Show message "Start the Zoombie Pandemy!", with the font "Arial-50", and color "White", and located in the middle*/
         GLabel start = new GLabel("Start the Zoombie Pandemy!");
-        start.setFont("Arial-50");
+        start.setFont("CourierNew-70");
         start.setColor(Color.LIGHT_GRAY);
         add(start, getWidth() / 2.0 - start.getWidth() / 2.0, getHeight() / 2.0);
 
@@ -95,11 +95,11 @@ public class Partida extends GraphicsProgram {
         boolean sortir = false;
         /*show the population the emoji's*/
         GLabel comptaSans = new GLabel("Population the Emoji's: " + ComptadorInfectats);
-        comptaSans.setFont("Arial-35");
+        comptaSans.setFont("CourierNew-35");
         comptaSans.setColor(Color.LIGHT_GRAY);
         /*show the number emoji's infected*/
         GLabel comptaInfectats = new GLabel("Emoji's Infected: " + ComptadorInfectats);
-        comptaInfectats.setFont("Arial-35");
+        comptaInfectats.setFont("CourierNew-35");
         comptaInfectats.setColor(Color.LIGHT_GRAY);
 
         /*Repeat the loop, while variable "sortir" be false*/
@@ -169,12 +169,16 @@ public class Partida extends GraphicsProgram {
 
         /*And show a message "Game Over", with the font "Arial-50", and color "White", and located in the middle*/
         GLabel gameover = new GLabel("Game Over!");
-        gameover.setFont("Arial-50");
+        gameover.setFont("CourierNew-70");
         gameover.setColor(Color.LIGHT_GRAY);
         add(gameover, getWidth() / 2.0 - gameover.getWidth() / 2.0, getHeight() / 2.0);
 
         /*establishes the pause time, in the value of the variable "1000"*/
         pause(1000);
+
+        waitForClick();/*wait until the user click on the window*/
+
+        System.exit(0);/*Close the window*/
     }
 
     /**

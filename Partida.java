@@ -29,6 +29,8 @@ import java.util.ArrayList;
 public class Partida extends GraphicsProgram {
     /**Create Variables private, final and static**/
     private static final ArrayList<Emoji> array_emojis = new ArrayList<>();
+    private static final String RUTA = "src/Zoombies/Imatges/";
+    private static final GImage fons = new GImage(RUTA+"fons.jpg");
 
     /**
      * Create method setter and static main
@@ -48,7 +50,6 @@ public class Partida extends GraphicsProgram {
         setBackground(Color.DARK_GRAY);
 
         /*Add the wallpapper of the game*/
-        GImage fons = new GImage("src/Zoombies/Imatges/fons.jpg");
         fons.setSize(getWidth(), getHeight());
         add(fons);
 
@@ -148,13 +149,20 @@ public class Partida extends GraphicsProgram {
                     break;
                 } else {
                     remove(comptaSans);
-                    /*show all emoji's infected*/
-                    comptaInfectats.setLocation(getWidth() / 2.0 - comptaInfectats.getWidth() / 1.5, 50);
-                    comptaInfectats.setLabel("All Emoji's Infected");
                     sortir = true;
                 }
             }
         }
+
+
+        /*Change wallpapper of the game*/
+        fons.setImage(RUTA+"fons-final.jpg");
+        fons.setSize(getWidth(), getHeight());
+        add(fons);
+
+        /*show all emoji's infected*/
+        comptaInfectats.setLabel("All Emoji's Infected");
+        add(comptaInfectats, getWidth() / 2.0 - comptaInfectats.getWidth() / 1.5, 50);
 
         /*And the next loop, makes all the emojis disappear*/
         for (Emoji actual2 : array_emojis) {

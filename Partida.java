@@ -130,7 +130,7 @@ public class Partida extends GraphicsProgram {
                         double y2 = img2.getY();
 
                         /*If the two images meet the following conditions*/
-                        if (y1 < y2 + 50 && y1 > y2 - 50 && x1 < x2 + 50  && x1 > x2 - 50) {
+                        if (y1 < y2 + 40 && y1 > y2 - 40 && x1 < x2 + 40  && x1 > x2 - 40) {
                             actual2.setZoombie(true);/*emoji is convert to zoombie*/
                             ComptadorSans--;/*less 1 the variable "ComptadorSans"*/
                             ComptadorInfectats++;/*more 1 the variable "ComptadorInfectats"*/
@@ -165,7 +165,7 @@ public class Partida extends GraphicsProgram {
         /*And the next loop, makes all the emojis disappear*/
         for (Emoji actual2 : array_emojis) {
             actual2.getImatge().setVisible(false);
-            pause(350);
+            pause(50);
         }
 
         /*And show a message "Humanity has become extinct!", with the font "CourierNew-70", and color "LIGHT_GRAY", and located in the middle*/

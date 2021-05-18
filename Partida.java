@@ -78,8 +78,8 @@ public class Partida extends GraphicsProgram {
          * add the images of the emojis in the window
          * */
         for (Emoji actual1 : array_emojis) {
-            double positionX = Aleatori.getNumeroAleatori(70, getWidth() - 71);
-            double positionY = Aleatori.getNumeroAleatori(70, getHeight() - 71);
+            double positionX = Aleatori.getNumeroAleatori(1, getWidth() - 50);
+            double positionY = Aleatori.getNumeroAleatori(1, getHeight() - 50);
             add(actual1.getImatge(), positionX ,positionY);
         }
     }

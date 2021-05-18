@@ -120,17 +120,13 @@ public class Partida extends GraphicsProgram {
                 for (Emoji actual2 : array_emojis) {
                     /*If emoji "actual1" is zoombie and emoji "actual2" is not zoombie*/
                     if (actual1.isZoombie() && !actual2.isZoombie()) {
-                        /*Storage position X and Y, of the two images
-                        * and too storage the two images*/
+                        /*Storage the two images of the emoji1 ("actual1") and the emoji2 ("actual2"),
+                        * run method "getImatge" of the class "Emoji"*/
                         GImage img1 = actual1.getImatge();
                         GImage img2 = actual2.getImatge();
-                        double x1 = img1.getX();
-                        double y1 = img1.getY();
-                        double x2 = img2.getX();
-                        double y2 = img2.getY();
 
-                        /*If the two images meet the following conditions*/
-                        if (y1 < y2 + 40 && y1 > y2 - 40 && x1 < x2 + 40  && x1 > x2 - 40) {
+                        /*If the two images collision*/
+                        if (img1.getBounds().intersects(img2.getBounds())) {
                             actual2.setZoombie(true);/*emoji is convert to zoombie*/
                             ComptadorSans--;/*less 1 the variable "ComptadorSans"*/
                             ComptadorInfectats++;/*more 1 the variable "ComptadorInfectats"*/

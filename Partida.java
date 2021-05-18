@@ -130,7 +130,7 @@ public class Partida extends GraphicsProgram {
                         double y2 = img2.getY();
 
                         /*If the two images meet the following conditions*/
-                        if (y1 < y2 + 35 && y1 > y2 - 35 && x1 < x2 + 35  && x1 > x2 - 35) {
+                        if (y1 < y2 + 50 && y1 > y2 - 50 && x1 < x2 + 50  && x1 > x2 - 50) {
                             actual2.setZoombie(true);/*emoji is convert to zoombie*/
                             ComptadorSans--;/*less 1 the variable "ComptadorSans"*/
                             ComptadorInfectats++;/*more 1 the variable "ComptadorInfectats"*/
@@ -142,14 +142,17 @@ public class Partida extends GraphicsProgram {
             /*Check if all emojis have converted in zoombie
             * if all have convert in zoombie, the variable "sortir" is true*/
             for (Emoji actual1 : array_emojis) {
+                /*If emoji current is not zoombie*/
                 if (!actual1.isZoombie()) {
+                    /*"sortir" will be equals to "false" and break the loop "foreach"*/
                     sortir = false;
                     break;
-                } else {
+                } else {/*If not, does the following*/
                     /*Show a message "All Emoji's Infected"*/
                     remove(comptaSans);
                     comptaInfectats.setLabel("All Emoji's Infected");
                     add(comptaInfectats, getWidth() / 2.0 - comptaInfectats.getWidth() / 1.5, 50);
+                    /*"sortir" will be equals to "true"*/
                     sortir = true;
                 }
             }
@@ -173,10 +176,6 @@ public class Partida extends GraphicsProgram {
 
         /*establishes the pause time, in the value of the variable "1000"*/
         pause(1000);
-
-        waitForClick();/*wait until the user click on the window*/
-
-        System.exit(0);/*Close the window*/
     }
 
     /**

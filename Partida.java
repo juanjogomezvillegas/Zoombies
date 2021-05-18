@@ -78,8 +78,8 @@ public class Partida extends GraphicsProgram {
          * add the images of the emojis in the window
          * */
         for (Emoji actual1 : array_emojis) {
-            double positionX = Aleatori.getNumeroAleatori(1, getWidth() - 50);
-            double positionY = Aleatori.getNumeroAleatori(1, getHeight() - 50);
+            double positionX = Aleatori.getNumeroAleatori(60, getWidth() - 75);
+            double positionY = Aleatori.getNumeroAleatori(60, getHeight() - 75);
             add(actual1.getImatge(), positionX ,positionY);
         }
     }
@@ -182,7 +182,7 @@ public class Partida extends GraphicsProgram {
      * Create method setter "setAvancar"
      * @param emoji the emoji that needs to be moved
      * **/
-    private void setMoureEmoji(Emoji emoji) {
+    public void setMoureEmoji(Emoji emoji) {
         /*Storage in the variables "positionX" and "positionY", the position X and Y to the emoji to param*/
         double positionX = emoji.getImatge().getX();
         double positionY = emoji.getImatge().getY();

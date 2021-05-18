@@ -128,6 +128,8 @@ public class Partida extends GraphicsProgram {
                         /*If the two images collision*/
                         if (img1.getBounds().intersects(img2.getBounds())) {
                             actual2.setZoombie(true);/*emoji is convert to zoombie*/
+                            actual1.setSpeedX(-actual1.getSpeedX());
+                            actual2.setSpeedX(-actual2.getSpeedX());
                             ComptadorSans--;/*less 1 the variable "ComptadorSans"*/
                             ComptadorInfectats++;/*more 1 the variable "ComptadorInfectats"*/
                         }

@@ -41,21 +41,21 @@ public class Emoji extends GraphicsProgram {
         /*assign the variable "zoombie" the value of the param "zoombie"*/
         this.zoombie = zoombie;
 
+        /*Generate number random between 0 and 5*/
         numRandom = Aleatori.getNumeroAleatori(0, 5);
-        /*Generate number random between 0 and 10, and select between the following cases:*/
-        if (numRandom == 0) {
+        if (numRandom == 0) {/*If "numRandom" equals 0*/
             speedX = 4;
             speedY = 2;
-        } else if (numRandom == 1) {
+        } else if (numRandom == 1) {/*If "numRandom" is equals to 1*/
             speedX = 4;
             speedY = -2;
-        } else if (numRandom == 2) {
+        } else if (numRandom == 2) {/*If "numRandom" is equals to 2*/
             speedX = -4;
             speedY = 2;
-        } else if (numRandom == 3) {
+        } else if (numRandom == 3) {/*If "numRandom" is equals to 3*/
             speedX = -4;
             speedY = -2;
-        } else {
+        } else {/*If "numRandom" is not equals to the previous*/
             speedX = -4;
             speedY = -2;
         }

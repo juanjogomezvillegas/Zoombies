@@ -72,7 +72,9 @@ public class Emoji extends GraphicsProgram {
      * @param zoombie will be true, if is zoombie, and will be false, if is not zoombie
      * **/
     public void setZoombie(boolean zoombie) {
-        IMAGE_EMOJI.setImage(RUTA+"zoombie.png");
+        if (zoombie) {
+            IMAGE_EMOJI.setImage(RUTA+"zoombie.png");
+        }
         this.zoombie = zoombie;
     }
 

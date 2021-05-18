@@ -9,11 +9,11 @@ package Zoombies;
 
 /**
  * We import the following classes:
- * @see acm.program.GraphicsProgram
- * @see acm.graphics.GImage
+ * @see acm.program
+ * @see acm.graphics
  * **/
-import acm.program.GraphicsProgram;
-import acm.graphics.GImage;
+import acm.program.*;
+import acm.graphics.*;
 
 /**
  * Create class "Emoji", inherited from the class "GraphicsProgram"
@@ -26,6 +26,7 @@ public class Emoji extends GraphicsProgram {
     /**Create Variables private**/
     private GImage IMAGE_EMOJI;
     private boolean zoombie;
+    private int numRandom;
     private double speedX;
     private double speedY;
 
@@ -40,40 +41,23 @@ public class Emoji extends GraphicsProgram {
         /*assign the variable "zoombie" the value of the param "zoombie"*/
         this.zoombie = zoombie;
 
+        numRandom = Aleatori.getNumeroAleatori(0, 5);
         /*Generate number random between 0 and 10, and select between the following cases:*/
-        switch (Aleatori.getNumeroAleatori(0, 10)) {
-            case 0:/*Case 0*/
-                this.speedX = 4;
-                this.speedY = 2;
-                break;
-            case 1:/*Case 1*/
-                this.speedX = 4;
-                this.speedY = -2;
-                break;
-            case 2:/*Case 2*/
-                this.speedX = -4;
-                this.speedY = 2;
-                break;
-            case 3:/*Case 3*/
-                this.speedX = -4;
-                this.speedY = -2;
-                break;
-            case 4:/*Case 4*/
-                this.speedX = 2;
-                this.speedY = 4;
-                break;
-            case 5:/*Case 5*/
-                this.speedX = 2;
-                this.speedY = -4;
-                break;
-            case 6:/*Case 6*/
-                this.speedX = -2;
-                this.speedY = 4;
-                break;
-            default:/*Case default*/
-                this.speedX = -2;
-                this.speedY = -4;
-                break;
+        if (numRandom == 0) {
+            speedX = 4;
+            speedY = 2;
+        } else if (numRandom == 1) {
+            speedX = 4;
+            speedY = -2;
+        } else if (numRandom == 2) {
+            speedX = -4;
+            speedY = 2;
+        } else if (numRandom == 3) {
+            speedX = -4;
+            speedY = -2;
+        } else {
+            speedX = -4;
+            speedY = -2;
         }
     }
 

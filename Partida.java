@@ -9,15 +9,13 @@ package Zoombies;
 
 /**
  * We import the following classes:
- * @see acm.program.GraphicsProgram
- * @see acm.graphics.GImage
- * @see acm.graphics.GLabel
+ * @see acm.program
+ * @see acm.graphics
  * @see java.awt.Color
  * @see java.util.ArrayList
  * **/
-import acm.program.GraphicsProgram;
-import acm.graphics.GImage;
-import acm.graphics.GLabel;
+import acm.program.*;
+import acm.graphics.*;
 import java.awt.Color;
 import java.util.ArrayList;
 
